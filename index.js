@@ -18,7 +18,7 @@ app.set('views', './views');
 const contenedor= new Contenedor('./utils/productos.txt')
 const carrito= new Contenedor('./utils/carrito.txt')
 const server =app.listen(port,()=>{
-    console.log(`escuchando el puerto: ${port}`)
+    console.log(`Server on http://localhost:${port}`)
 })
 server.on('error',error=>console.log(`error en el servidor: ${error}`))
 
@@ -50,6 +50,10 @@ routerProductos.post('/',async(req,res,next)=>{
     let producto= req.body
     respuesta= await contenedor.save(producto)
     res.json({respuesta})
+})
+routerProductos.put('/:id',async (req,res)=>{
+    let {id}= req.params
+    respuesta= await contenedor.update(id)
 })
 routerProductos.delete('/:id',async(req,res,next)=>{
     let {id} = req.params

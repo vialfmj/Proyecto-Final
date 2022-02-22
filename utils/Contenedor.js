@@ -61,6 +61,30 @@ class Contenedor{
             console.log('no se encontro el producto')
         }
     }
+    update= async (idBuscado)=>{
+
+       let respuesta = await this.getAll()
+       let id= Number(idBuscado)
+       let newElement={
+           title: 'nuevoNombre',
+           price: 'nuevoPrecio',
+           thumbnail: 'nuevaUrl',
+           id: id
+       }
+       if(respuesta)
+       {
+//           let coincidencia= respuesta.find(element=>element.id === id)
+           let posicion= respuesta.findIndex(element=> element.id=== id)
+           respuesta[posicion]= newElement
+           console.log(respuesta)
+       }
+       else{
+           console.log('no se encontro el producto')
+       }
+    }
+
+
+
     deleteById=async(elementoAEliminar)=>{
         let indice= elementoAEliminar-1
         let sliced
