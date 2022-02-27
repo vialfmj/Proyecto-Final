@@ -2,14 +2,24 @@
 <div class="container lista-productos">
 
 {{#each respuesta}}
-    
+  
+  <div class="producto">
     {{#each this}}
-        <div class="container">
-            <p>{{this}}</p>
-        </div>
+        
+             <div class="container contenedor-producto">
+            
+                      <p class="text-center">{{this}}</p>
+            
+            </div>
+       
 
     {{/each}}
-    <hr>
+    <div class="contenedor-boton">
+
+                <button type="button" class="btn btn-primary">Agregar al carrito</button>
+    </div>
+    </div>
+    
 {{/each}}
 </div>
 

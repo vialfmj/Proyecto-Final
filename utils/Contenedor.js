@@ -19,7 +19,6 @@ class Contenedor{
                 productos,
                 producto]
             let escritura= await fs.promises.writeFile(this.archivo,JSON.stringify(productos))
-            console.log(`id:${producto.id}`)
             return producto
                 }
             else{
@@ -61,14 +60,12 @@ class Contenedor{
             console.log('no se encontro el producto')
         }
     }
-    update= async (idBuscado)=>{
+    update= async (idBuscado, newProducto)=>{
 
        let respuesta = await this.getAll()
        let id= Number(idBuscado)
        let newElement={
-           title: 'nuevoNombre',
-           price: 'nuevoPrecio',
-           thumbnail: 'nuevaUrl',
+            ...newProducto,
            id: id
        }
        if(respuesta)
@@ -76,7 +73,7 @@ class Contenedor{
 //           let coincidencia= respuesta.find(element=>element.id === id)
            let posicion= respuesta.findIndex(element=> element.id=== id)
            respuesta[posicion]= newElement
-           console.log(respuesta)
+           let escritura= await fs.promises.writeFile(this.archivo,JSON.stringify(respuesta))
        }
        else{
            console.log('no se encontro el producto')

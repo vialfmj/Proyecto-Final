@@ -1,3 +1,27 @@
-.body{
-    background-color: red;
+.lista-productos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    text-align: center;
+    
 }
+.contenedor-producto{
+    height: 80px;
+    width: 100%;
+    
+    border: solid 3px black
+
+}
+.producto{
+    background-color: khaki;
+    width: 30%;
+    padding-bottom: 9px;
+}
+.contenedor-boton{
+    text-align: center;
+    width: auto;
+}
+
