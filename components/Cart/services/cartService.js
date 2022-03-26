@@ -9,16 +9,9 @@ class Cart {
     addCart = async ()=>{
         const generateId = () => Math.random().toString(36).substr(2, 18);
         let idCart= generateId()
-        let idGen = generateId()
-        let cartData =[{
-            "title": "nuevoProducto",
-            "price": "nuevoPrecio",
-            "thumbnail": "nuevaUrl",
-            "id" : idGen
-        }]
-
+        let cartData = []
         let respuesta = await fs.promises.writeFile(`utils/carts/${idCart}.txt`,JSON.stringify(cartData))
-        return `se creo un nuevo carrito en con el id: ${idCart}`
+        return `${idCart}`
     }
     deleteCart = async (id)=>{
         let respuesta = await fs.promises.unlink(`utils/carts/${id}.txt`,err=>{
