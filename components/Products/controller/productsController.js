@@ -1,35 +1,32 @@
-const config = require('../../../config')
 const productsService = require('../services/productsService')
-
 class ProductsContainer {
-    getProducts = async (req,res,next)=>{
-        let respuesta = await productsService.getProducts()
+    getAll = async (req,res,next)=>{
+        let respuesta = await productsService.getAll()
         res.send(respuesta)
     }
-    getProductById = async (req,res,next)=>{
+    getById = async(req,res,next)=>{
         const {id} = req.params
-        let respuesta = await productsService.getProductById(Number(id))
+        let respuesta = await productsService.getById(id)
         res.send(respuesta)
     }
-    addProduct = async (req,res,next)=>{
+    add = async(req,res,next)=>{
         let {producto} = req.body
         let {admin} = req.body
-        let respuesta = await productsService.addProduct(producto,admin)
+        let respuesta = await productsService.add(producto,admin)
         res.json(respuesta)
     }
-    updateProduct = async (req,res,next)=>{
+    update =async(req,res,next)=>{
         let {id}= req.params
         let {producto, admin}= req.body
-        let respuesta= await productsService.updateProduct(id,producto,admin)
+        let respuesta= await productsService.update(id,producto,admin)
         res.json(respuesta)
     }
-    deleteProduct = async(req,res,next)=>{
+    delete = async(req,res,next)=>{
         let {id} = req.params
         let {admin} =req.body
-        let respuesta = await productsService.deleteProduct(id,admin)
+        let respuesta = await productsService.delete(id,admin)
         res.json(respuesta)
-
-
     }
+    
 }
 module.exports = new ProductsContainer()

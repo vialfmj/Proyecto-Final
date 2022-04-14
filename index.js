@@ -19,15 +19,5 @@ const server =app.listen(config.port,()=>{
 server.on('error',error=>console.log(`error en el servidor: ${error}`))
 
 app.get('/',(req,res,next)=>{
-
-
     res.send('pagina de inicio')
 })
-
-/* 
-
-routerProductos.delete('/:id',async(req,res,next)=>{
-    let {id} = req.params
-    respuesta = await contenedor.deleteById()
-    res.send(`elemento ${id} ${respuesta}`)
-}) */

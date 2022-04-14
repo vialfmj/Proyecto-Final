@@ -1,1 +1,0 @@
-[{"nombre":"Intel I5","descripcion":"procesador intel modelo 12400","codigo":"123","imagenUrl":"https://http2.mlstatic.com/D_NQ_NP_988305-MLA48794303966_012022-O.webp","precio":"39999","stock":"3","id":"fcan7iso25a"}]
